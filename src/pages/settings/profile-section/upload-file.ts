@@ -1,4 +1,4 @@
-import {axiosAuthTodos} from '@utils/axios-instances';
+import {axiosAuthInstance} from '@utils/axios-instances';
 import axios from 'axios';
 
 export async function uploadToS3({
@@ -39,7 +39,7 @@ type PresignedPostUrlResponse = {
 async function getPresignedPostUrl(fileType: string) {
   const {
     data: presignedPostUrl,
-  } = await axiosAuthTodos.get<PresignedPostUrlResponse>(
+  } = await axiosAuthInstance.get<PresignedPostUrlResponse>(
     `/get-presigned-url-s3?fileType=${fileType}`,
   );
 

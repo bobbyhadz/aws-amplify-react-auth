@@ -2,7 +2,7 @@ import {refreshJwt} from '@utils/refresh-jwt';
 import axios from 'axios';
 import {API_BASE_URL, JWT_LOCALSTORAGE_KEY} from 'src/constants';
 
-export const axiosAuthTodos = axios.create({
+export const axiosAuthInstance = axios.create({
   baseURL: API_BASE_URL,
   headers: {
     authorization: getUserToken() || null,
@@ -10,7 +10,7 @@ export const axiosAuthTodos = axios.create({
   timeout: 5000,
 });
 
-axiosAuthTodos.interceptors.request.use(
+axiosAuthInstance.interceptors.request.use(
   // Check JWT's validity before request is sent
   async function onFulfilled(config) {
     const {idToken} = await refreshJwt();

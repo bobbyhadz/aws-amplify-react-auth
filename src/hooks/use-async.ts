@@ -25,11 +25,6 @@ function useSafeDispatch(dispatch: React.Dispatch<ActionTypes>) {
   );
 }
 
-// Example usage:
-// const {data, error, status, run} = useAsync()
-// React.useEffect(() => {
-//   run(fetchPokemon(pokemonName))
-// }, [pokemonName, run])
 const defaultInitialState: InitialState = {
   status: 'idle',
   data: null,
@@ -67,6 +62,7 @@ export function useAsync<T>(initialState?: InitialState) {
     safeSetState,
   ]);
 
+  // this is from kent c dodds' epic-react course
   const run = React.useCallback(
     (promise: Promise<T>) => {
       if (!promise.then) {
