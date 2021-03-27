@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://bobbyhadz.com/blog/amplify-pros-cons</loc>
+  </url>
+
+  <url>
+    <loc>https://bobbyhadz.com/blog/command-line-filtering</loc>
+  </url>
+
+  <url>
+    <loc>https://bobbyhadz.com/blog/default-html-layout</loc>
+  </url>
+
+  <url>
+    <loc>https://bobbyhadz.com/blog/hosting-nextjs-amplify</loc>
+  </url>
+
+  <url>
+    <loc>https://bobbyhadz.com/blog/javascript-polyfills</loc>
+  </url>
+
+  <url>
+    <loc>https://bobbyhadz.com/blog/seo-basics</loc>
+  </url>
+
+  <url>
+    <loc>https://bobbyhadz.com/blog/tailing-ubuntu-logfiles</loc>
+  </url>
+
+  <url>
+    <loc>https://bobbyhadz.com/blog/tldr-man-pages</loc>
+  </url>
+
+  <url>
+    <loc>https://bobbyhadz.com/blog/web-dev-performance</loc>
+  </url>
+</urlset>

@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "target": "ES2018",
+    "module": "commonjs",
+    "lib": ["es2018", "ESNext.AsyncIterable"],
+    "allowJs": true,
+    "checkJs": true,
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": true,
+    "typeRoots": ["./node_modules/@types", "src/global-types"],
+    "isolatedModules": true,
+    "baseUrl": "./",
+    "paths": {
+      "/opt/nodejs/yup-utils": ["src/layers/yup-utils/nodejs/yup-utils"]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.js",
+    "global-types/**/*",
+    "infra/**/*",
+    "globals.ts"
+  ],
+  "exclude": ["node_modules", "**/node_modules/*", "cdk.out"]
+}

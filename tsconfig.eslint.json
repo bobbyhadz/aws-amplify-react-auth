@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "src/**/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.js",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*",
+    ".next",
+    "public",
+    "next.config.js",
+    ".eslintrc.js",
+    ".prettierrc.js",
+    "backend"
+  ]
+}

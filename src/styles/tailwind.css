@@ -1,0 +1,56 @@
+/* purgecss start ignore */
+@tailwind base;
+
+@layer base {
+  #__next {
+    @apply flex flex-col min-h-screen;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, Oxygen, Ubuntu, Fira Sans, Droid Sans, 'Helvetica Neue', Arial,
+      'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+      'Segoe UI Symbol', 'Noto Color Emoji';
+  }
+
+  /* Hide image alt tags from appearing before images are loaded in Firefox {{{ */
+  img:-moz-loading {
+    @apply invisible;
+  }
+  img {
+    @apply text-transparent;
+  }
+  /* Hide image alt tags from appearing before images are loaded in Firefox }}} */
+
+  /* Loading Spinner {{{ */
+
+  .loading-spinner {
+    @apply inline-block w-20 h-20;
+  }
+  .loading-spinner:after {
+    @apply block w-16 h-16 m-2 animate-spin;
+    content: ' ';
+    border-radius: 50%;
+    border: 6px solid black;
+    border-color: black transparent black transparent;
+  }
+
+  /* Loading Spinner }}} */
+}
+/* purgecss end ignore */
+
+@tailwind components;
+
+@layer components {
+  /* Write your own custom component styles here */
+  .btn-blue {
+    @apply px-4 py-2 font-bold text-white bg-blue-500 rounded;
+  }
+}
+
+@tailwind utilities;
+
+/* Your own custom utilities */
+@layer utilities {
+}

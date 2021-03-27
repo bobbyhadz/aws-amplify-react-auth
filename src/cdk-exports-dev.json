@@ -1,0 +1,14 @@
+{
+  "next-cognito-dev": {
+    "oauthCallbackUrl": "http://localhost:3000/",
+    "bucketName": "next-cognito-dev-s3bucket5e7b98c4-1nbwqr87tae08",
+    "oauthLogoutUrl": "http://localhost:3000/",
+    "apiUrl": "https://9ivy4bbsj1.execute-api.eu-central-1.amazonaws.com/",
+    "userPoolClientId": "4c98grv5c10ith3nhvh0avo8eb",
+    "oauthDomain": "next-cdk-auth-dev.auth.eu-central-1.amazoncognito.com",
+    "region": "eu-central-1",
+    "userPoolId": "eu-central-1_KMV2OKbwj",
+    "identityPoolId": "eu-central-1:e9bb5606-b160-47b2-978c-fde7134f5963",
+    "tableName": "next-cognito-dev-todostable220F42D0-14HUK6SFX7J9N"
+  }
+}
