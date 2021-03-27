@@ -1,6 +1,7 @@
 import {CognitoUser} from '@aws-amplify/auth';
 import {Modal} from '@components/modal';
-import {Notification} from '@components/notification';
+import {NotificationType, useNotification} from '@context/notification';
+import {useEffect} from 'react';
 import {FcLock} from 'react-icons/fc';
 import {ChangePasswordForm} from './change-password-form';
 import {useChangePassword} from './use-change-password';
@@ -27,38 +28,40 @@ export function ChangePasswordModal({
     isSuccess,
     newPasswordRef,
   } = useChangePassword({userConfig, closePasswordModal});
+  const {addNotification} = useNotification();
+
+  useEffect(() => {
+    if (isSuccess) {
+      addNotification({
+        type: NotificationType.SUCCESS,
+        title:
+          'Password updated successfully, use the new password the next time you log in.',
+        message: 'Thank you for keeping your account secure.',
+      });
+    }
+
+    if (isError && error) {
+      addNotification({type: NotificationType.ERROR, title: error.message});
+    }
+  }, [addNotification, error, isError, isSuccess]);
 
   return (
-    <>
-      {isError && error && (
-        <Notification type="error" title={error.message} key={status} />
-      )}
-
-      {isSuccess && (
-        <Notification
-          type="success"
-          title="Password updated successfully, use the new password the next time you log in."
-          description="Thank you for keeping your account secure."
+    <Modal
+      title="Change Password"
+      description="Pick a strong password of minimum 6 characters, that you haven't used on any other website."
+      showsModal={showsPasswordModal}
+      closeModal={closePasswordModal}
+      icon={<LockIconColored className="w-12 h-12" />}
+      body={
+        <ChangePasswordForm
+          register={register}
+          handleSubmit={handleSubmit}
+          formErrors={formErrors}
+          isLoading={isLoading}
+          newPasswordRef={newPasswordRef}
         />
-      )}
-
-      <Modal
-        title="Change Password"
-        description="Pick a strong password of minimum 6 characters, that you haven't used on any other website."
-        showsModal={showsPasswordModal}
-        closeModal={closePasswordModal}
-        icon={<LockIconColored className="w-12 h-12" />}
-        body={
-          <ChangePasswordForm
-            register={register}
-            handleSubmit={handleSubmit}
-            formErrors={formErrors}
-            isLoading={isLoading}
-            newPasswordRef={newPasswordRef}
-          />
-        }
-      />
-    </>
+      }
+    />
   );
 }
 

@@ -2,10 +2,11 @@ import {Button, Input, Label} from '@components/forms';
 import {Heading, SubHeading} from '@components/heading/heading';
 import {EmailIcon} from '@components/icons/icons';
 import {LoadingInline} from '@components/loading-spinner';
-import {Notification} from '@components/notification';
+import {NotificationType, useNotification} from '@context/notification';
 import {isValidEmail} from '@shared/index';
 import {withAnonymous} from '@utils/route-hocs';
 import {NextSeo} from 'next-seo';
+import {useEffect} from 'react';
 import {FRONTEND_BASE_URL, IMAGE_PATHS, ROUTE_PATHS} from 'src/constants';
 import {useRequestPasswordReset} from './use-request-password-reset';
 
@@ -25,8 +26,24 @@ function RequestPasswordReset() {
     error,
     isSuccess,
     isLoading,
-    status,
   } = useRequestPasswordReset();
+
+  const {addNotification} = useNotification();
+
+  useEffect(() => {
+    if (isSuccess) {
+      addNotification({
+        type: NotificationType.SUCCESS,
+        title:
+          'Please click on the link sent to your email address, to complete the process.',
+        message: 'Form submitted successfully.',
+      });
+    }
+
+    if (isError && error) {
+      addNotification({type: NotificationType.ERROR, title: error.message});
+    }
+  }, [addNotification, error, isError, isSuccess]);
 
   return (
     <>
@@ -41,23 +58,6 @@ function RequestPasswordReset() {
         }}
       />
       <div className="flex flex-col py-12 mt-12 sm:px-6 lg:px-8">
-        {isError && error && (
-          <Notification
-            type="error"
-            title={error.message}
-            description="Your request has failed."
-            key={status}
-          />
-        )}
-
-        {isSuccess && (
-          <Notification
-            type="success"
-            title="Please click on the link sent to your email address, to complete the process."
-            description="Form submitted successfully."
-          />
-        )}
-
         <div className="lg:flex">
           <div className="lg:pr-16 lg:flex-1">
             <div className="p-2 sm:mx-auto sm:w-full sm:max-w-md">

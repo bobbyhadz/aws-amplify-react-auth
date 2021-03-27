@@ -1,6 +1,6 @@
 import Auth from '@aws-amplify/auth';
 import {LoadingGlobal} from '@components/loading-spinner';
-import {Notification} from '@components/notification';
+import {NotificationType, useNotification} from '@context/notification';
 import {useAsync} from '@hooks/use-async';
 import {useRouter} from 'next/router';
 import {useEffect} from 'react';
@@ -8,15 +8,7 @@ import {ROUTE_PATHS} from 'src/constants';
 
 export default function CompleteEmailChange() {
   const router = useRouter();
-  const {
-    error,
-    status,
-    isIdle,
-    isLoading,
-    isError,
-    isSuccess,
-    run,
-  } = useAsync();
+  const {error, isIdle, isLoading, isError, isSuccess, run} = useAsync();
 
   useEffect(() => {
     if (router.isReady && !router.query.code) {
@@ -38,16 +30,20 @@ export default function CompleteEmailChange() {
     }
   }, [isSuccess, router]);
 
+  const {addNotification} = useNotification();
+
+  useEffect(() => {
+    if (isError && error) {
+      addNotification({
+        type: NotificationType.ERROR,
+        title: error.message,
+        message: 'Your request has failed.',
+      });
+    }
+  }, [addNotification, error, isError]);
+
   return (
     <div className="flex flex-col py-12 mt-8 sm:px-6 lg:px-8">
-      {isError && error && (
-        <Notification
-          type="error"
-          title={error.message}
-          description="Your request has failed."
-          key={status}
-        />
-      )}
       {(isIdle || isLoading) && <LoadingGlobal />}
     </div>
   );

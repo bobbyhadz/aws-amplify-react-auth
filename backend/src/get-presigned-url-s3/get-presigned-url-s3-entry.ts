@@ -6,10 +6,11 @@ if (
   !process.env.BUCKET_NAME ||
   !process.env.USER_POOL_ID ||
   !process.env.IDENTITY_POOL_ID ||
-  !process.env.ACCOUNT_ID
+  !process.env.ACCOUNT_ID ||
+  !process.env.REGION
 )
   throw new Error(
-    'Environment variables BUCKET_NAME, USER_POOL_ID, IDENTITY_POOL_ID, ACCOUNT_ID are required.',
+    'Environment variables BUCKET_NAME, USER_POOL_ID, IDENTITY_POOL_ID, ACCOUNT_ID, REGION are required.',
   );
 
 type Event = APIGatewayProxyEventV2 & {
@@ -19,6 +20,7 @@ type Event = APIGatewayProxyEventV2 & {
 
 export async function main(event: Event): Promise<APIGatewayProxyResultV2> {
   console.log('Event is', JSON.stringify(event, null, 2));
+  console.log('HERE 👍👍👍👍 REGION -->', process.env.REGION);
   try {
     if (!event.queryStringParameters?.fileType)
       throw new Error(

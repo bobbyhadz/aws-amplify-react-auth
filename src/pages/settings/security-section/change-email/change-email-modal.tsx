@@ -1,6 +1,7 @@
 import {CognitoUser} from '@aws-amplify/auth';
 import {Modal} from '@components/modal';
-import {Notification} from '@components/notification';
+import {NotificationType, useNotification} from '@context/notification';
+import {useEffect} from 'react';
 import {FcFeedback} from 'react-icons/fc';
 import {ChangeEmailForm} from './change-email-form';
 import {useChangeEmail} from './use-change-email';
@@ -21,43 +22,44 @@ export function ChangeEmailModal({
     handleSubmit,
     formErrors,
     error,
-    status,
     isLoading,
     isSuccess,
     isError,
   } = useChangeEmail({userConfig, closeEmailModal});
+  const {addNotification} = useNotification();
+
+  useEffect(() => {
+    if (isSuccess) {
+      addNotification({
+        type: NotificationType.SUCCESS,
+        title:
+          'Please click on the activation link, sent to your new email address.',
+        message:
+          'To complete the email change - verify your new email address by clicking on the activation link.',
+      });
+    }
+
+    if (isError && error) {
+      addNotification({type: NotificationType.ERROR, title: error.message});
+    }
+  }, [addNotification, error, isError, isSuccess]);
 
   return (
-    <>
-      {isError && error && (
-        <Notification type="error" title={error.message} key={status} />
-      )}
-
-      {isSuccess && (
-        <Notification
-          type="success"
-          title="Please click on the activation link, sent to your new email address."
-          description="To complete the email change - verify your new email address by clicking on the activation link."
-          key={status}
+    <Modal
+      title="Change Email"
+      description="After changing your email address you will receive an activation link, please click on it to complete the process."
+      showsModal={showsEmailModal}
+      closeModal={closeEmailModal}
+      icon={<FeedbackIcon className="w-12 h-12" />}
+      body={
+        <ChangeEmailForm
+          handleSubmit={handleSubmit}
+          register={register}
+          formErrors={formErrors}
+          isLoading={isLoading}
         />
-      )}
-
-      <Modal
-        title="Change Email"
-        description="After changing your email address you will receive an activation link, please click on it to complete the process."
-        showsModal={showsEmailModal}
-        closeModal={closeEmailModal}
-        icon={<FeedbackIcon className="w-12 h-12" />}
-        body={
-          <ChangeEmailForm
-            handleSubmit={handleSubmit}
-            register={register}
-            formErrors={formErrors}
-            isLoading={isLoading}
-          />
-        }
-      />
-    </>
+      }
+    />
   );
 }
 

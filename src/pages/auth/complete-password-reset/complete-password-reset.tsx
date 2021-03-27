@@ -2,11 +2,12 @@ import {Button, Input, Label} from '@components/forms';
 import {Heading, SubHeading} from '@components/heading/heading';
 import {EmailIcon, LockIcon} from '@components/icons/icons';
 import {LoadingInline} from '@components/loading-spinner';
-import {Notification} from '@components/notification';
+import {NotificationType, useNotification} from '@context/notification';
 import {isValidEmail} from '@shared/index';
 import {withAnonymous} from '@utils/route-hocs';
 import {NextSeo} from 'next-seo';
 import {useRouter} from 'next/router';
+import {useEffect} from 'react';
 import {HiKey} from 'react-icons/hi';
 import {FRONTEND_BASE_URL, IMAGE_PATHS, ROUTE_PATHS} from 'src/constants';
 import {useCompletePasswordReset} from './use-complete-password-reset';
@@ -27,9 +28,20 @@ function CompletePasswordReset() {
     isLoading,
     isError,
     error,
-    status,
   } = useCompletePasswordReset();
   const router = useRouter();
+
+  const {addNotification} = useNotification();
+
+  useEffect(() => {
+    if (isError && error) {
+      addNotification({
+        type: NotificationType.ERROR,
+        title: error.message,
+        message: 'Your request has failed.',
+      });
+    }
+  }, [addNotification, error, isError]);
 
   return (
     <>
@@ -44,15 +56,6 @@ function CompletePasswordReset() {
         }}
       />
       <div className="flex flex-col py-12 mt-12 sm:px-6 lg:px-8">
-        {isError && error && (
-          <Notification
-            type="error"
-            title={error.message}
-            description="Your request has failed."
-            key={status}
-          />
-        )}
-
         <div className="lg:flex">
           <div className="lg:pr-16 lg:flex-1">
             <div className="p-2 sm:mx-auto sm:w-full sm:max-w-md">

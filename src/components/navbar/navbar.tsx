@@ -15,12 +15,7 @@ import {useClickOutside} from './use-click-outside';
 import {useLogout} from './use-logout';
 import {UserDropdownButton, UserDropdownLinks} from './user-dropdown';
 
-const commonLinks = [
-  {href: '/', text: 'Home'},
-  {href: '/random', text: 'Random'},
-  {href: '/test', text: 'Test'},
-];
-const authenticatedLinks = [{href: '/todos', text: 'Todos'}];
+const commonLinks = [{href: '/', text: 'Home'}];
 
 const anonymousDropdownLinks = [
   {
@@ -82,8 +77,6 @@ export function Navbar() {
   const links = [...commonLinks];
 
   if (isAuthenticated) {
-    links.push(...authenticatedLinks);
-
     if (user?.isAdmin) {
       links.push({href: ROUTE_PATHS.CONTACTS, text: 'Contacts'});
     }
@@ -140,7 +133,7 @@ export function Navbar() {
                   <UserDropdownLinks
                     className={`${
                       !showsUserDropdown ? 'hidden' : ''
-                    } absolute right-0 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5`}
+                    } absolute right-0 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-50`}
                   >
                     {dropdownLinks.map(link => (
                       <Link key={link.href} href={link.href}>

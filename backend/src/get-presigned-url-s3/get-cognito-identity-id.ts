@@ -1,5 +1,4 @@
 import AWS from 'aws-sdk';
-import {DEPLOY_REGION} from '../../infra/constants';
 
 export function getCognitoIdentityId(
   jwtToken: string,
@@ -19,9 +18,8 @@ export function getCognitoIdentityId(
 }
 
 function getCognitoIdentityIdParams(jwtToken: string) {
-  const {USER_POOL_ID, ACCOUNT_ID, IDENTITY_POOL_ID} = process.env;
-  console.log('___ DEPLOY REGION IS:  ___', DEPLOY_REGION);
-  const loginsKey = `cognito-idp.${DEPLOY_REGION}.amazonaws.com/${USER_POOL_ID}`;
+  const {USER_POOL_ID, ACCOUNT_ID, IDENTITY_POOL_ID, REGION} = process.env;
+  const loginsKey = `cognito-idp.${REGION}.amazonaws.com/${USER_POOL_ID}`;
 
   return {
     IdentityPoolId: IDENTITY_POOL_ID,

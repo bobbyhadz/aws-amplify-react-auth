@@ -3,7 +3,7 @@ import {Footer} from '@components/footer';
 import {Container} from '@components/layout';
 import {Navbar} from '@components/navbar';
 import {AuthProvider} from '@context/auth';
-import {SWRConfigurationProvider} from '@context/swr';
+import {NotificationProvider} from '@context/notification';
 import '@styles/tailwind.css';
 import {DefaultSeo} from 'next-seo';
 import {AppProps} from 'next/app';
@@ -11,9 +11,6 @@ import Head from 'next/head';
 import {StrictMode} from 'react';
 import {
   IDENTITY_POOL_ID,
-  OAUTH_CALLBACK_URL,
-  OAUTH_DOMAIN,
-  OAUTH_LOGOUT_URL,
   REGION,
   USER_POOL_CLIENT_ID,
   USER_POOL_ID,
@@ -27,21 +24,6 @@ Auth.configure({
   userPoolId: USER_POOL_ID,
   identityPoolId: IDENTITY_POOL_ID,
   userPoolWebClientId: USER_POOL_CLIENT_ID,
-  oauth: {
-    domain: OAUTH_DOMAIN,
-    scope: [
-      'phone',
-      'email',
-      'profile',
-      'openid',
-      'aws.cognito.signin.user.admin',
-    ],
-    // note these have to match the cognito App integration/ App client settings interface
-    redirectSignIn: OAUTH_CALLBACK_URL,
-    redirectSignOut: OAUTH_LOGOUT_URL,
-    responseType: 'code',
-  },
-  // ssr: true, // do I need this
 });
 
 const navbarHeight = '172px';
@@ -56,7 +38,7 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
       </Head>
       <DefaultSeo {...SEO} />
       <div className="bg-gray-50">
-        <SWRConfigurationProvider>
+        <NotificationProvider>
           <AuthProvider>
             <Navbar />
             <Container
@@ -68,7 +50,7 @@ const App: React.FC<AppProps> = ({Component, pageProps}) => {
               <Component {...pageProps} />
             </Container>
           </AuthProvider>
-        </SWRConfigurationProvider>
+        </NotificationProvider>
         <Footer />
       </div>
     </StrictMode>

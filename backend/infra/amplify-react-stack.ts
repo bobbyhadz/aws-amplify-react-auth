@@ -1,5 +1,6 @@
 import * as apiGateway from '@aws-cdk/aws-apigatewayv2';
 import * as cdk from '@aws-cdk/core';
+import {DEPLOY_REGION} from './constants';
 import {HttpApiConstruct} from './constructs/apigateway';
 import {
   IdentityPoolConstruct,
@@ -50,10 +51,10 @@ export class AmplifyReactStack extends cdk.Stack {
         methods: [apiGateway.HttpMethod.GET],
         routePath: '/get-presigned-url-s3',
         assetPath: 'get-presigned-url-s3/index.ts',
-        externalModules: ['yup'],
         environment: {
           ...defaultLambdaEnvVars,
           BUCKET_NAME: s3Bucket.bucketName,
+          REGION: DEPLOY_REGION as string,
         },
       },
     );

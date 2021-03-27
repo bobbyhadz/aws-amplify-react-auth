@@ -4,13 +4,11 @@ import {EmailIcon, LockIcon} from '@components/icons/icons';
 import {Flex} from '@components/layout';
 import {LoadingInline} from '@components/loading-spinner';
 import {NextLink} from '@components/next-link';
-import {Notification} from '@components/notification';
+import {NotificationType, useNotification} from '@context/notification';
 import {isValidEmail} from '@shared/index';
-import {handleFacebookLogin, handleGoogleLogin} from '@utils/oauth-login';
 import {withAnonymous} from '@utils/route-hocs';
 import {NextSeo} from 'next-seo';
-import {FaFacebook} from 'react-icons/fa';
-import {FcGoogle} from 'react-icons/fc';
+import {useEffect} from 'react';
 import {FRONTEND_BASE_URL, IMAGE_PATHS, ROUTE_PATHS} from 'src/constants';
 import {useLogin} from './use-login';
 
@@ -27,9 +25,20 @@ function Login() {
     formErrors,
     isError,
     error,
-    status,
     isLoading,
   } = useLogin();
+
+  const {addNotification} = useNotification();
+
+  useEffect(() => {
+    if (isError && error) {
+      addNotification({
+        type: NotificationType.ERROR,
+        title: error.message,
+        message: 'Your request has failed.',
+      });
+    }
+  }, [addNotification, error, isError]);
 
   return (
     <>
@@ -44,15 +53,6 @@ function Login() {
         }}
       />
       <div className="flex flex-col py-12 mt-12 sm:px-6 lg:px-8">
-        {isError && error && (
-          <Notification
-            type="error"
-            title={error.message}
-            description="Your request has failed."
-            key={status}
-          />
-        )}
-
         <div className="lg:flex">
           <div className="lg:flex-1">
             <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -120,25 +120,6 @@ function Login() {
                   <div>
                     <Button type="submit" disabled={!!isLoading} isFullWidth>
                       Log In {isLoading && <LoadingInline />}
-                    </Button>
-                    <Button
-                      type="button"
-                      color="secondary"
-                      className="mt-8"
-                      onClick={() => handleGoogleLogin()}
-                      isFullWidth
-                    >
-                      Log in with Google <FcGoogle className="w-6 h-6 ml-3" />
-                    </Button>
-                    <Button
-                      type="button"
-                      color="light"
-                      className="mt-8"
-                      onClick={() => handleFacebookLogin()}
-                      isFullWidth
-                    >
-                      Log in with Facebook{' '}
-                      <FaFacebook className="w-6 h-6 ml-3" />
                     </Button>
                   </div>
                 </form>

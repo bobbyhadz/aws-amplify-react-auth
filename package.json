@@ -1,13 +1,4 @@
 {
-  "version": "1.0.0",
-  "author": "Borislav Hadzhiev",
-  "license": "MIT",
-  "browserslist": [
-    "defaults",
-    "not IE 11",
-    "not IE_Mob 11",
-    "maintained node versions"
-  ],
   "scripts": {
     "setup": "npm install && npm run setup --prefix backend/",
     "cdk-create-stack": "npm run cdk-create-stack --prefix backend/",
@@ -23,7 +14,7 @@
     "lint": "eslint . --ext js,jsx,ts,tsx --fix --ignore-pattern backend"
   },
   "dependencies": {
-    "@aws-amplify/auth": "^3.4.25",
+    "@aws-amplify/auth": "^3.4.29",
     "@tailwindcss/aspect-ratio": "^0.2.0",
     "@tailwindcss/forms": "^0.2.1",
     "@tailwindcss/typography": "^0.4.0",
@@ -31,8 +22,8 @@
     "axios": "^0.21.1",
     "next": "^10.0.8",
     "next-seo": "^4.18.0",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-hook-form": "^6.14.2",
     "react-icons": "^4.2.0",
     "stop-runaway-react-effects": "^2.0.0",
@@ -71,5 +62,14 @@
     "prettier": "^2.2.1",
     "react-test-renderer": "^17.0.1",
     "typescript": "^4.2.3"
-  }
+  },
+  "version": "1.0.0",
+  "author": "Borislav Hadzhiev",
+  "license": "MIT",
+  "browserslist": [
+    "defaults",
+    "not IE 11",
+    "not IE_Mob 11",
+    "maintained node versions"
+  ]
 }
