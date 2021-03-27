@@ -20,7 +20,6 @@ type Event = APIGatewayProxyEventV2 & {
 
 export async function main(event: Event): Promise<APIGatewayProxyResultV2> {
   console.log('Event is', JSON.stringify(event, null, 2));
-  console.log('HERE 👍👍👍👍 REGION -->', process.env.REGION);
   try {
     if (!event.queryStringParameters?.fileType)
       throw new Error(
