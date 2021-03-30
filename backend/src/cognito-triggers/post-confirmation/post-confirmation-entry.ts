@@ -7,6 +7,7 @@ export async function main(
   callback: Callback,
 ): Promise<void> {
   const {userPoolId, userName} = event;
+  console.log('POST CONFIRMATION EVENT', JSON.stringify(event, null, 2));
 
   try {
     await adminAddUserToGroup({
