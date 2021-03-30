@@ -1,3 +1,4 @@
+import Auth from '@aws-amplify/auth';
 /* eslint-disable import/no-mutable-exports */
 import * as dev from './cdk-exports-dev.json';
 
@@ -57,10 +58,21 @@ export enum IMAGE_PATHS {
   MAIL_ICON = '/images/contacts/mail-icon.svg',
 }
 
+const amplifyConfigure = () => {
+  Auth.configure({
+    mandatorySignIn: false,
+    region: REGION,
+    userPoolId: USER_POOL_ID,
+    identityPoolId: IDENTITY_POOL_ID,
+    userPoolWebClientId: USER_POOL_CLIENT_ID,
+  });
+};
+
 export {
   REGION,
   API_BASE_URL,
   USER_POOL_CLIENT_ID,
   USER_POOL_ID,
   IDENTITY_POOL_ID,
+  amplifyConfigure,
 };

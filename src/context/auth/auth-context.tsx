@@ -7,9 +7,15 @@ import {
   useMemo,
   useReducer,
 } from 'react';
-import {IDENTITY_LOCALSTORAGE_KEY, JWT_LOCALSTORAGE_KEY} from 'src/constants';
+import {
+  amplifyConfigure,
+  IDENTITY_LOCALSTORAGE_KEY,
+  JWT_LOCALSTORAGE_KEY,
+} from 'src/constants';
 import type {UpdatableUserAttributes} from './auth-reducer';
 import {authReducer, AuthReducerAction, AuthState} from './auth-reducer';
+
+amplifyConfigure();
 
 type AuthContextValue = [AuthState, React.Dispatch<AuthReducerAction>];
 

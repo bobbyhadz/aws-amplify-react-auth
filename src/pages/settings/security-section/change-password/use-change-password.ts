@@ -2,6 +2,9 @@ import Auth, {CognitoUser} from '@aws-amplify/auth';
 import {useAsync} from '@hooks/use-async';
 import {useEffect, useRef} from 'react';
 import {SubmitHandler, useForm} from 'react-hook-form';
+import {amplifyConfigure} from 'src/constants';
+
+amplifyConfigure();
 
 type FormInputs = {
   oldPassword: string;

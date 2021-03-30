@@ -6,7 +6,10 @@ import type {UpdatableUserAttributes, User} from '@context/auth/auth-reducer';
 import {NotificationType, useNotification} from '@context/notification';
 import {useEffect} from 'react';
 import {HiHome, HiLocationMarker, HiPhone} from 'react-icons/hi';
+import {amplifyConfigure} from 'src/constants';
 import {useUpdatePersonalInformation} from './use-update-personal-information';
+
+amplifyConfigure();
 
 const countries = [
   {value: '', text: 'Select a Country'},

@@ -7,7 +7,10 @@ import {LoadingInline} from '@components/loading-spinner';
 import type {UpdatableUserAttributes, User} from '@context/auth/auth-reducer';
 import {NotificationType, useNotification} from '@context/notification';
 import {useEffect} from 'react';
+import {amplifyConfigure} from 'src/constants';
 import {useUpdateProfile} from './use-update-profile';
+
+amplifyConfigure();
 
 export function ProfileForm({
   user,

@@ -1,4 +1,3 @@
-import Auth from '@aws-amplify/auth';
 import {Footer} from '@components/footer';
 import {Container} from '@components/layout';
 import {Navbar} from '@components/navbar';
@@ -9,22 +8,11 @@ import {DefaultSeo} from 'next-seo';
 import {AppProps} from 'next/app';
 import Head from 'next/head';
 import {StrictMode} from 'react';
-import {
-  IDENTITY_POOL_ID,
-  REGION,
-  USER_POOL_CLIENT_ID,
-  USER_POOL_ID,
-} from 'src/constants';
+import {amplifyConfigure} from 'src/constants';
 import SEO from 'src/next-seo-config';
 import 'stop-runaway-react-effects/hijack';
 
-Auth.configure({
-  mandatorySignIn: false,
-  region: REGION,
-  userPoolId: USER_POOL_ID,
-  identityPoolId: IDENTITY_POOL_ID,
-  userPoolWebClientId: USER_POOL_CLIENT_ID,
-});
+amplifyConfigure();
 
 const navbarHeight = '172px';
 const footerHeight = '232px';

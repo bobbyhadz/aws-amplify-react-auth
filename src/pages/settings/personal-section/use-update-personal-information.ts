@@ -4,6 +4,9 @@ import {useAsync} from '@hooks/use-async';
 import {usePrevious} from '@hooks/use-previous';
 import {useCallback, useEffect} from 'react';
 import {SubmitHandler, useForm} from 'react-hook-form';
+import {amplifyConfigure} from 'src/constants';
+
+amplifyConfigure();
 
 type PersonalInformationInputs = {
   phoneNumber: string;

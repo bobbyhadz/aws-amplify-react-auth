@@ -3,8 +3,11 @@ import {Modal} from '@components/modal';
 import {NotificationType, useNotification} from '@context/notification';
 import {useEffect} from 'react';
 import {FcLock} from 'react-icons/fc';
+import {amplifyConfigure} from 'src/constants';
 import {ChangePasswordForm} from './change-password-form';
 import {useChangePassword} from './use-change-password';
+
+amplifyConfigure();
 
 type ChangePasswordModalProps = {
   userConfig?: CognitoUser;

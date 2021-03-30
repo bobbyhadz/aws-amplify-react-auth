@@ -4,7 +4,13 @@ import {useAsync} from '@hooks/use-async';
 import {handleLogin} from '@utils/log-user-in';
 import {useRouter} from 'next/router';
 import {useEffect} from 'react';
-import {ROUTE_PATHS, TEMP_PWD_LOCALSTORAGE_KEY} from 'src/constants';
+import {
+  amplifyConfigure,
+  ROUTE_PATHS,
+  TEMP_PWD_LOCALSTORAGE_KEY,
+} from 'src/constants';
+
+amplifyConfigure();
 
 export function useCompleteRegistration() {
   const {initializeUser} = useAuth();

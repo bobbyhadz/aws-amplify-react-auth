@@ -1,5 +1,11 @@
 import Auth from '@aws-amplify/auth';
-import {IDENTITY_LOCALSTORAGE_KEY, JWT_LOCALSTORAGE_KEY} from 'src/constants';
+import {
+  amplifyConfigure,
+  IDENTITY_LOCALSTORAGE_KEY,
+  JWT_LOCALSTORAGE_KEY,
+} from 'src/constants';
+
+amplifyConfigure();
 
 /**
  * Refreshes the JWT token if it has expired.

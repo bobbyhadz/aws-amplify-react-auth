@@ -6,8 +6,11 @@ import {useAsync} from '@hooks/use-async';
 import {usePrevious} from '@hooks/use-previous';
 import {useCallback, useEffect} from 'react';
 import {SubmitHandler, useForm} from 'react-hook-form';
+import {amplifyConfigure} from 'src/constants';
 import {uploadToS3} from './upload-file';
 import {useFileChange} from './use-file-change';
+
+amplifyConfigure();
 
 type ProfileFormInputs = {
   givenName: string;

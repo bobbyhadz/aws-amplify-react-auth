@@ -3,8 +3,11 @@ import {Modal} from '@components/modal';
 import {NotificationType, useNotification} from '@context/notification';
 import {useEffect} from 'react';
 import {FcFeedback} from 'react-icons/fc';
+import {amplifyConfigure} from 'src/constants';
 import {ChangeEmailForm} from './change-email-form';
 import {useChangeEmail} from './use-change-email';
+
+amplifyConfigure();
 
 type ChangeEmailProps = {
   userConfig?: CognitoUser;
