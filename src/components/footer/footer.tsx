@@ -1,11 +1,5 @@
 import {NextLink} from '@components/next-link';
-import {
-  FaBlog,
-  FaFacebook,
-  FaGithub,
-  FaInstagram,
-  FaTwitter,
-} from 'react-icons/fa';
+import {FaBlog, FaGithub, FaTwitter} from 'react-icons/fa';
 
 const socialLinks = [
   {
@@ -41,14 +35,6 @@ export const Footer = () => (
     </footer>
   </>
 );
-
-function FacebookIcon({className = 'w-6 h-6'}) {
-  return <FaFacebook className={className} />;
-}
-
-function InstagramIcon({className = 'w-6 h-6'}) {
-  return <FaInstagram className={className} />;
-}
 
 function TwitterIcon({className = 'w-6 h-6'}) {
   return <FaTwitter className={className} />;

@@ -21,7 +21,6 @@ export function ChangePasswordModal({
     register,
     handleSubmit,
     formErrors,
-    status,
     error,
     isError,
     isLoading,
