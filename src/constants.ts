@@ -5,11 +5,11 @@ export const TWITTER_HANDLE = 'bobbyhadz';
 export const GITHUB_HANDLE = 'bobbyhadz';
 export const FRONTEND_BASE_URL = 'https://frontend-url.com';
 
-let REGION: string;
-let API_BASE_URL: string;
-let USER_POOL_CLIENT_ID: string;
-let USER_POOL_ID: string;
-let IDENTITY_POOL_ID: string;
+let REGION = '';
+let API_BASE_URL = '';
+let USER_POOL_CLIENT_ID = '';
+let USER_POOL_ID = '';
+let IDENTITY_POOL_ID = '';
 let S3_BUCKET_NAME = '';
 
 if (process.env.NODE_ENV === 'production') {
@@ -29,14 +29,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 export const S3_BUCKET_URL = `https://${S3_BUCKET_NAME}.s3.amazonaws.com`;
 export const MAX_FILE_SIZE_BYTES = 1000000;
-
-export {
-  REGION,
-  API_BASE_URL,
-  USER_POOL_CLIENT_ID,
-  USER_POOL_ID,
-  IDENTITY_POOL_ID,
-};
 
 export const JWT_LOCALSTORAGE_KEY = 'cognito_id_token';
 export const IDENTITY_LOCALSTORAGE_KEY = 'cognito_identity_id';
@@ -64,3 +56,11 @@ export enum IMAGE_PATHS {
   CONTACTS = '/images/contacts/contacts.svg',
   MAIL_ICON = '/images/contacts/mail-icon.svg',
 }
+
+export {
+  REGION,
+  API_BASE_URL,
+  USER_POOL_CLIENT_ID,
+  USER_POOL_ID,
+  IDENTITY_POOL_ID,
+};
