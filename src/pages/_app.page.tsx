@@ -24,7 +24,7 @@ Auth.configure({
   userPoolId: USER_POOL_ID,
   identityPoolId: IDENTITY_POOL_ID,
   userPoolWebClientId: USER_POOL_CLIENT_ID,
-  aws_project_region: 'eu-central-1',
+  aws_project_region: REGION,
 });
 
 const navbarHeight = '172px';
