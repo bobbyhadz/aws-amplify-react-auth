@@ -1,5 +1,4 @@
 import Auth from '@aws-amplify/auth';
-import Amplify from '@aws-amplify/core';
 import {Footer} from '@components/footer';
 import {Container} from '@components/layout';
 import {Navbar} from '@components/navbar';
@@ -18,14 +17,6 @@ import {
 } from 'src/constants';
 import SEO from 'src/next-seo-config';
 import 'stop-runaway-react-effects/hijack';
-
-Amplify.configure({
-  mandatorySignIn: false,
-  region: REGION,
-  userPoolId: USER_POOL_ID,
-  identityPoolId: IDENTITY_POOL_ID,
-  userPoolWebClientId: USER_POOL_CLIENT_ID,
-});
 
 Auth.configure({
   mandatorySignIn: false,

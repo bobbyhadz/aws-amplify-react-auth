@@ -6,7 +6,6 @@
     "cdk-deploy": "npx cdk deploy amplify-react-auth-dev --outputs-file ../src/cdk-exports-dev.json",
     "cdk-create-stack": "npm run cdk-bootstrap && npm run cdk-deploy",
     "cdk-destroy": "npx cdk destroy amplify-react-auth-dev",
-    "cdk-deploy-prod": "DEPLOY_ENVIRONMENT=prod npm run cdk-bootstrap && npm run cdk-deploy",
     "test": "jest",
     "watch": "tsc -w",
     "build": "tsc",
