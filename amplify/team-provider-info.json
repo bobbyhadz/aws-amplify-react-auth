@@ -1,0 +1,23 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-amplifyreactauth-dev-134756-authRole",
+            "UnauthRoleArn": "arn:aws:iam::674587793989:role/amplify-amplifyreactauth-dev-134756-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::674587793989:role/amplify-amplifyreactauth-dev-134756-authRole",
+            "Region": "eu-central-1",
+            "DeploymentBucketName": "amplify-amplifyreactauth-dev-134756-deployment",
+            "UnauthRoleName": "amplify-amplifyreactauth-dev-134756-unauthRole",
+            "StackName": "amplify-amplifyreactauth-dev-134756",
+            "StackId": "arn:aws:cloudformation:eu-central-1:674587793989:stack/amplify-amplifyreactauth-dev-134756/6579e3b0-9145-11eb-b335-0284606048fe",
+            "AmplifyAppId": "dulcodrloxvk6"
+        },
+        "categories": {
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "dulcodrloxvk6",
+                    "type": "cicd"
+                }
+            }
+        }
+    }
+}
