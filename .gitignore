@@ -35,8 +35,6 @@ yarn-error.log*
 .vercel
 /out
 
-cdk-exports-dev.json
-
 #amplify
 amplify/\#current-cloud-backend
 amplify/.config/local-*

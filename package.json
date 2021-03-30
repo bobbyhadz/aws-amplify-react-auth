@@ -2,6 +2,7 @@
   "scripts": {
     "setup": "npm install && npm run setup --prefix backend/",
     "cdk-create-stack": "npm run cdk-create-stack --prefix backend/",
+    "cdk-deploy-prod": "npm run cdk-deploy-prod --prefix backend/",
     "cdk-destroy": "npm run cdk-destroy --prefix backend/",
     "dev": "next dev",
     "build": "next build && next export",
