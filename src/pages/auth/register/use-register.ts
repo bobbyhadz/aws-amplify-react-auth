@@ -3,9 +3,7 @@ import {useAsync} from '@hooks/use-async';
 import type {ISignUpResult} from 'amazon-cognito-identity-js';
 import {useRef} from 'react';
 import {SubmitHandler, useForm} from 'react-hook-form';
-import {amplifyConfigure, TEMP_PWD_LOCALSTORAGE_KEY} from 'src/constants';
-
-amplifyConfigure();
+import {TEMP_PWD_LOCALSTORAGE_KEY} from 'src/constants';
 
 type FormInputs = {
   email: string;

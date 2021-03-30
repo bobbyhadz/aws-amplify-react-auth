@@ -4,9 +4,7 @@ import {NotificationType, useNotification} from '@context/notification';
 import {useAsync} from '@hooks/use-async';
 import {useRouter} from 'next/router';
 import {useEffect} from 'react';
-import {amplifyConfigure, ROUTE_PATHS} from 'src/constants';
-
-amplifyConfigure();
+import {ROUTE_PATHS} from 'src/constants';
 
 export default function CompleteEmailChange() {
   const router = useRouter();

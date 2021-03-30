@@ -1,7 +1,4 @@
 import type {CognitoUser} from '@aws-amplify/auth';
-import {amplifyConfigure} from 'src/constants';
-
-amplifyConfigure();
 
 export type User = {
   email: string;

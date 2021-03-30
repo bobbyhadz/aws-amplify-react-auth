@@ -2,11 +2,8 @@ import {CognitoUser} from '@aws-amplify/auth';
 import {Button} from '@components/forms';
 import {LockIcon} from '@components/icons/icons';
 import {useCallback, useState} from 'react';
-import {amplifyConfigure} from 'src/constants';
 import {ChangeEmailModal} from './change-email';
 import {ChangePasswordModal} from './change-password';
-
-amplifyConfigure();
 
 export const SecurityTable = ({
   email,

@@ -1,9 +1,6 @@
 import Auth from '@aws-amplify/auth';
 import {useAuth} from '@context/auth';
 import {useRouter} from 'next/router';
-import {amplifyConfigure} from 'src/constants';
-
-amplifyConfigure();
 
 export function useLogout() {
   const {dispatch} = useAuth();

@@ -1,8 +1,6 @@
 import Auth, {CognitoUser} from '@aws-amplify/auth';
 import {NextRouter} from 'next/router';
-import {amplifyConfigure, TEMP_PWD_LOCALSTORAGE_KEY} from 'src/constants';
-
-amplifyConfigure();
+import {TEMP_PWD_LOCALSTORAGE_KEY} from 'src/constants';
 
 type LoginParams = {
   email: string;

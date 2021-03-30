@@ -5,9 +5,7 @@ import {handleLogin} from '@utils/log-user-in';
 import {useRouter} from 'next/router';
 import {useEffect, useRef} from 'react';
 import {SubmitHandler, useForm} from 'react-hook-form';
-import {amplifyConfigure, ROUTE_PATHS} from 'src/constants';
-
-amplifyConfigure();
+import {ROUTE_PATHS} from 'src/constants';
 
 type FormInputs = {
   email: string;
