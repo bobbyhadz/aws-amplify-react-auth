@@ -4,7 +4,6 @@ import * as apiGatewayIntegrations from '@aws-cdk/aws-apigatewayv2-integrations'
 import * as dynamodb from '@aws-cdk/aws-dynamodb';
 import * as lambda from '@aws-cdk/aws-lambda';
 import {NodejsFunction} from '@aws-cdk/aws-lambda-nodejs';
-import * as logs from '@aws-cdk/aws-logs';
 import * as cdk from '@aws-cdk/core';
 import path from 'path';
 
@@ -57,7 +56,6 @@ export class EndpointConstruct extends cdk.Construct {
           ? ['aws-sdk', ...externalModules]
           : ['aws-sdk'],
       },
-      logRetention: logs.RetentionDays.ONE_DAY,
     });
 
     if (dynamo?.table) {
