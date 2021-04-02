@@ -84,7 +84,5 @@ export function InputErrorMessage({
 }: {
   errorMessage?: string;
 }): ReactElement | null {
-  return errorMessage ? (
-    <p className="h-5 mt-1 text-sm text-red-600">{errorMessage}</p>
-  ) : null;
+  return <p className="h-5 mt-1 text-sm text-red-600">{errorMessage}</p>;
 }
