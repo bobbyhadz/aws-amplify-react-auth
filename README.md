@@ -9,10 +9,6 @@ infrastructure using CDK.
 
 1. Clone the repository
 
-```bash
-git clone git@github.com:bobbyhadz/aws-amplify-react-auth.git && cd aws-amplify-react-auth
-```
-
 2. Install the dependencies
 
 ```bash
