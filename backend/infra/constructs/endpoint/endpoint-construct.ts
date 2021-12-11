@@ -65,9 +65,10 @@ export class EndpointConstruct extends cdk.Construct {
     this.endpoint = httpApi.addRoutes({
       path: routePath,
       methods,
-      integration: new apiGatewayIntegrations.LambdaProxyIntegration({
-        handler: this.lambda,
-      }),
+      integration: new apiGatewayIntegrations.HttpLambdaIntegration(
+        `${id}-integration`,
+        this.lambda,
+      ),
       authorizer,
     });
   }

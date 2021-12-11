@@ -1,0 +1,10 @@
+{
+  "amplify-react-auth-dev": {
+    "bucketName": "amplify-react-auth-dev-s3bucket5e7b98c4-pd3d2sju8y4g",
+    "apiUrl": "https://ry34vjvcq3.execute-api.eu-central-1.amazonaws.com/",
+    "userPoolClientId": "25b73tk5i9ik8gemk269qtm4rq",
+    "region": "eu-central-1",
+    "userPoolId": "eu-central-1_ubPCvOBQw",
+    "identityPoolId": "eu-central-1:696f556e-07e7-4184-9301-62d8ab5f45c0"
+  }
+}

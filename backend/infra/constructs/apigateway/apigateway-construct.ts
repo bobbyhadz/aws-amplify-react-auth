@@ -47,9 +47,10 @@ export class HttpApiConstruct extends cdk.Construct {
     const {userPool, userPoolClient} = props;
 
     this.httpApiCognitoAuthorizer = new apiGatewayAuthorizers.HttpUserPoolAuthorizer(
+      'api-cognito-authorizer',
+      userPool,
       {
-        userPool,
-        userPoolClient,
+        userPoolClients: [userPoolClient],
         identitySource: ['$request.header.Authorization'],
       },
     );
