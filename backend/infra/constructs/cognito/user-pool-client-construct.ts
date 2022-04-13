@@ -1,15 +1,16 @@
-import * as cognito from '@aws-cdk/aws-cognito';
-import * as cdk from '@aws-cdk/core';
+import * as cognito from 'aws-cdk-lib/aws-cognito';
+import * as cdk from 'aws-cdk-lib';
+import {Construct} from 'constructs';
 
 type UserPoolClientConstructProps = {
   userPool: cognito.UserPool;
 };
 
-export class UserPoolClientConstruct extends cdk.Construct {
+export class UserPoolClientConstruct extends Construct {
   public readonly userPoolClient: cognito.UserPoolClient;
 
   constructor(
-    scope: cdk.Construct,
+    scope: Construct,
     id: string,
     props: UserPoolClientConstructProps,
   ) {

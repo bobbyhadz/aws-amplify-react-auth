@@ -1,21 +1,18 @@
-import * as cognito from '@aws-cdk/aws-cognito';
-import * as iam from '@aws-cdk/aws-iam';
-import * as cdk from '@aws-cdk/core';
+import * as cognito from 'aws-cdk-lib/aws-cognito';
+import * as iam from 'aws-cdk-lib/aws-iam';
+import * as cdk from 'aws-cdk-lib';
 import {DEPLOY_ENVIRONMENT, STACK_PREFIX} from '../../constants';
+import {Construct} from 'constructs';
 
 type IdentityPoolConstructProps = {
   userPool: cognito.UserPool;
   userPoolClient: cognito.UserPoolClient;
 };
 
-export class IdentityPoolConstruct extends cdk.Construct {
+export class IdentityPoolConstruct extends Construct {
   public readonly identityPool: cognito.CfnIdentityPool;
 
-  constructor(
-    scope: cdk.Construct,
-    id: string,
-    props: IdentityPoolConstructProps,
-  ) {
+  constructor(scope: Construct, id: string, props: IdentityPoolConstructProps) {
     super(scope, id);
 
     const {userPool, userPoolClient} = props;

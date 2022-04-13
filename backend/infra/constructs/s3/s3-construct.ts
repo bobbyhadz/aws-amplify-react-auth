@@ -1,11 +1,11 @@
-import * as s3 from '@aws-cdk/aws-s3';
-import * as cdk from '@aws-cdk/core';
+import * as s3 from 'aws-cdk-lib/aws-s3';
 import {FRONTEND_BASE_URL} from '../../constants';
+import {Construct} from 'constructs';
 
-export class UploadsBucketConstruct extends cdk.Construct {
+export class UploadsBucketConstruct extends Construct {
   public readonly s3Bucket: s3.Bucket;
 
-  constructor(scope: cdk.Construct, id: string) {
+  constructor(scope: Construct, id: string) {
     super(scope, id);
 
     this.s3Bucket = new s3.Bucket(this, id, {

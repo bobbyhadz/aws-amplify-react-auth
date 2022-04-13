@@ -1,8 +1,9 @@
-import * as cognito from '@aws-cdk/aws-cognito';
-import * as iam from '@aws-cdk/aws-iam';
-import * as lambda from '@aws-cdk/aws-lambda';
-import {NodejsFunction} from '@aws-cdk/aws-lambda-nodejs';
-import * as cdk from '@aws-cdk/core';
+import * as cognito from 'aws-cdk-lib/aws-cognito';
+import * as iam from 'aws-cdk-lib/aws-iam';
+import * as lambda from 'aws-cdk-lib/aws-lambda';
+import {NodejsFunction} from 'aws-cdk-lib/aws-lambda-nodejs';
+import * as cdk from 'aws-cdk-lib';
+import {Construct} from 'constructs';
 import * as path from 'path';
 import {
   DEPLOY_ENVIRONMENT,
@@ -10,10 +11,10 @@ import {
   STACK_PREFIX,
 } from '../../constants';
 
-export class UserPoolConstruct extends cdk.Construct {
+export class UserPoolConstruct extends Construct {
   public readonly userPool: cognito.UserPool;
 
-  constructor(scope: cdk.Construct, id: string) {
+  constructor(scope: Construct, id: string) {
     super(scope, id);
 
     const postAccountConfirmationTrigger = new NodejsFunction(

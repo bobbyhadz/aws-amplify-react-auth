@@ -1,7 +1,8 @@
-import * as apiGateway from '@aws-cdk/aws-apigatewayv2';
-import * as apiGatewayAuthorizers from '@aws-cdk/aws-apigatewayv2-authorizers';
-import * as cognito from '@aws-cdk/aws-cognito';
-import * as cdk from '@aws-cdk/core';
+import * as apiGateway from '@aws-cdk/aws-apigatewayv2-alpha';
+import * as apiGatewayAuthorizers from '@aws-cdk/aws-apigatewayv2-authorizers-alpha';
+import * as cognito from 'aws-cdk-lib/aws-cognito';
+import * as cdk from 'aws-cdk-lib';
+import {Construct} from 'constructs';
 import {
   DEPLOY_ENVIRONMENT,
   FRONTEND_BASE_URL,
@@ -13,12 +14,12 @@ type HttpApiConstructProps = {
   userPoolClient: cognito.UserPoolClient;
 };
 
-export class HttpApiConstruct extends cdk.Construct {
+export class HttpApiConstruct extends Construct {
   public readonly httpApi: apiGateway.HttpApi;
 
   public readonly httpApiCognitoAuthorizer: apiGatewayAuthorizers.HttpUserPoolAuthorizer;
 
-  constructor(scope: cdk.Construct, id: string, props: HttpApiConstructProps) {
+  constructor(scope: Construct, id: string, props: HttpApiConstructProps) {
     super(scope, id);
 
     this.httpApi = new apiGateway.HttpApi(this, 'api', {
@@ -46,13 +47,14 @@ export class HttpApiConstruct extends cdk.Construct {
 
     const {userPool, userPoolClient} = props;
 
-    this.httpApiCognitoAuthorizer = new apiGatewayAuthorizers.HttpUserPoolAuthorizer(
-      'api-cognito-authorizer',
-      userPool,
-      {
-        userPoolClients: [userPoolClient],
-        identitySource: ['$request.header.Authorization'],
-      },
-    );
+    this.httpApiCognitoAuthorizer =
+      new apiGatewayAuthorizers.HttpUserPoolAuthorizer(
+        'api-cognito-authorizer',
+        userPool,
+        {
+          userPoolClients: [userPoolClient],
+          identitySource: ['$request.header.Authorization'],
+        },
+      );
   }
 }

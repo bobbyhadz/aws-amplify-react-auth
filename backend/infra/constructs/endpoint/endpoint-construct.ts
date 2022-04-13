@@ -1,11 +1,12 @@
-import * as apiGateway from '@aws-cdk/aws-apigatewayv2';
-import * as apiGatewayAuthorizers from '@aws-cdk/aws-apigatewayv2-authorizers';
-import * as apiGatewayIntegrations from '@aws-cdk/aws-apigatewayv2-integrations';
-import * as dynamodb from '@aws-cdk/aws-dynamodb';
-import * as lambda from '@aws-cdk/aws-lambda';
-import {NodejsFunction} from '@aws-cdk/aws-lambda-nodejs';
-import * as cdk from '@aws-cdk/core';
+import * as apiGateway from '@aws-cdk/aws-apigatewayv2-alpha';
+import * as apiGatewayAuthorizers from '@aws-cdk/aws-apigatewayv2-authorizers-alpha';
+import * as apiGatewayIntegrations from '@aws-cdk/aws-apigatewayv2-integrations-alpha';
+import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
+import * as lambda from 'aws-cdk-lib/aws-lambda';
+import {NodejsFunction} from 'aws-cdk-lib/aws-lambda-nodejs';
+import * as cdk from 'aws-cdk-lib';
 import path from 'path';
+import {Construct} from 'constructs';
 
 type EndpointConstructProps = {
   httpApi: apiGateway.HttpApi;
@@ -22,12 +23,12 @@ type EndpointConstructProps = {
     permissions: string[];
   };
 };
-export class EndpointConstruct extends cdk.Construct {
+export class EndpointConstruct extends Construct {
   public readonly endpoint: apiGateway.HttpRoute[];
 
   public readonly lambda: NodejsFunction;
 
-  constructor(scope: cdk.Construct, id: string, props: EndpointConstructProps) {
+  constructor(scope: Construct, id: string, props: EndpointConstructProps) {
     super(scope, id);
     const {
       httpApi,

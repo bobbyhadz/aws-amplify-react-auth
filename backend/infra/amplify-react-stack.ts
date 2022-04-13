@@ -1,5 +1,5 @@
-import * as apiGateway from '@aws-cdk/aws-apigatewayv2';
-import * as cdk from '@aws-cdk/core';
+import * as apiGateway from '@aws-cdk/aws-apigatewayv2-alpha';
+import * as cdk from 'aws-cdk-lib';
 import {DEPLOY_REGION} from './constants';
 import {HttpApiConstruct} from './constructs/apigateway';
 import {
@@ -11,7 +11,7 @@ import {EndpointConstruct} from './constructs/endpoint';
 import {UploadsBucketConstruct} from './constructs/s3/s3-construct';
 
 export class AmplifyReactStack extends cdk.Stack {
-  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
     const {userPool} = new UserPoolConstruct(this, 'userpool');
