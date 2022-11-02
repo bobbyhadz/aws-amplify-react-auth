@@ -21,7 +21,7 @@ export class UserPoolConstruct extends Construct {
       this,
       'post-confirmation',
       {
-        runtime: lambda.Runtime.NODEJS_14_X,
+        runtime: lambda.Runtime.NODEJS_16_X,
         memorySize: 1024,
         timeout: cdk.Duration.seconds(6),
         handler: 'main',
@@ -34,7 +34,7 @@ export class UserPoolConstruct extends Construct {
     );
 
     const customMessagesTrigger = new NodejsFunction(this, 'custom-messages', {
-      runtime: lambda.Runtime.NODEJS_14_X,
+      runtime: lambda.Runtime.NODEJS_16_X,
       memorySize: 1024,
       timeout: cdk.Duration.seconds(6),
       handler: 'main',

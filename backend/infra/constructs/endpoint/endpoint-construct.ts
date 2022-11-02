@@ -43,7 +43,7 @@ export class EndpointConstruct extends Construct {
     } = props;
 
     this.lambda = new NodejsFunction(this, id, {
-      runtime: lambda.Runtime.NODEJS_14_X,
+      runtime: lambda.Runtime.NODEJS_16_X,
       memorySize: 1024,
       timeout: cdk.Duration.seconds(5),
       handler: 'main',
