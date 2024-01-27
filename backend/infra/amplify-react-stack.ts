@@ -1,4 +1,4 @@
-import * as apiGateway from '@aws-cdk/aws-apigatewayv2-alpha';
+import * as apiGateway from 'aws-cdk-lib/aws-apigatewayv2';
 import * as cdk from 'aws-cdk-lib';
 import {DEPLOY_REGION} from './constants';
 import {HttpApiConstruct} from './constructs/apigateway';

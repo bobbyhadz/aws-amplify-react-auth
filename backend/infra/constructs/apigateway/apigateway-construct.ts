@@ -1,5 +1,5 @@
-import * as apiGateway from '@aws-cdk/aws-apigatewayv2-alpha';
-import * as apiGatewayAuthorizers from '@aws-cdk/aws-apigatewayv2-authorizers-alpha';
+import * as apiGateway from 'aws-cdk-lib/aws-apigatewayv2';
+import * as apiGatewayAuthorizers from 'aws-cdk-lib/aws-apigatewayv2-authorizers';
 import * as cognito from 'aws-cdk-lib/aws-cognito';
 import * as cdk from 'aws-cdk-lib';
 import {Construct} from 'constructs';

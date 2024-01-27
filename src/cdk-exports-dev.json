@@ -1,10 +1,10 @@
 {
   "amplify-react-auth-dev": {
-    "bucketName": "amplify-react-auth-dev-s3bucket5e7b98c4-v37tcm6tu245",
-    "apiUrl": "https://e58vmkgstd.execute-api.eu-central-1.amazonaws.com/",
-    "userPoolClientId": "3i7t8kibbdfajl4oo7bosl6bfv",
+    "bucketName": "amplify-react-auth-dev-s3bucket5e7b98c4-i0vxlw7ziohy",
+    "apiUrl": "https://a46kdwwq33.execute-api.eu-central-1.amazonaws.com/",
+    "userPoolClientId": "5hb86nd9o1sb9stq2emrbi8g3h",
     "region": "eu-central-1",
-    "userPoolId": "eu-central-1_mpnz8NW16",
-    "identityPoolId": "eu-central-1:34dd9e8a-267d-49a7-b7b6-cb77f478298f"
+    "userPoolId": "eu-central-1_cD6dPfYW8",
+    "identityPoolId": "eu-central-1:2053a3ab-8511-43c0-be76-91a800884c92"
   }
 }

@@ -1,6 +1,6 @@
-import * as apiGateway from '@aws-cdk/aws-apigatewayv2-alpha';
-import * as apiGatewayAuthorizers from '@aws-cdk/aws-apigatewayv2-authorizers-alpha';
-import * as apiGatewayIntegrations from '@aws-cdk/aws-apigatewayv2-integrations-alpha';
+import * as apiGateway from 'aws-cdk-lib/aws-apigatewayv2';
+import * as apiGatewayAuthorizers from 'aws-cdk-lib/aws-apigatewayv2-authorizers';
+import * as apiGatewayIntegrations from 'aws-cdk-lib/aws-apigatewayv2-integrations';
 import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import {NodejsFunction} from 'aws-cdk-lib/aws-lambda-nodejs';
@@ -43,7 +43,7 @@ export class EndpointConstruct extends Construct {
     } = props;
 
     this.lambda = new NodejsFunction(this, id, {
-      runtime: lambda.Runtime.NODEJS_16_X,
+      runtime: lambda.Runtime.NODEJS_18_X,
       memorySize: 1024,
       timeout: cdk.Duration.seconds(5),
       handler: 'main',
